@@ -1,0 +1,44 @@
+{
+  "name": "topicos-g5-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "18.16.1",
+    "npm": "^9.5.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build && rm -rf ./.next/cache",
+    "start": "next start",
+    "lint": "next lint --fix --ext .js,.jsx ."
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/icons-material": "^5.14.6",
+    "@mui/lab": "^5.0.0-alpha.143",
+    "@mui/material": "^5.14.8",
+    "@mui/x-date-pickers": "^6.14.0",
+    "axios": "^1.5.0",
+    "dayjs": "^1.11.9",
+    "encoding": "^0.1.13",
+    "firebase": "^9.23.0",
+    "next-auth": "^4.23.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.4",
+    "react-number-format": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.3.1",
+    "@types/react": "18.2.12",
+    "@types/react-dom": "18.2.5",
+    "@types/redux-logger": "3.0.9",
+    "eslint": "^8.47.0",
+    "eslint-config-next": "13.4.19",
+    "eslint-plugin-react": "^7.33.2",
+    "next": "13.4.19",
+    "redux-logger": "3.0.6"
+  }
+}
