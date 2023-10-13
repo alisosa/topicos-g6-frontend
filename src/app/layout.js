@@ -1,7 +1,6 @@
 import mainTheme from '@/theme'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import Head from 'next/head'
-import Body from '@/components/Body'
 import Provider from '@/components/Provider'
 
 const RootLayout = ({ children }) => {
@@ -13,9 +12,9 @@ const RootLayout = ({ children }) => {
       <CssBaseline />
       <ThemeProvider theme={mainTheme}>
         <Provider>
-          <Body>
+          <body>
             {children}
-          </Body>
+          </body>
         </Provider>
       </ThemeProvider>
     </html >

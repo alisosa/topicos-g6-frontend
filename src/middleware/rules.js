@@ -2,8 +2,8 @@ import { roles } from "@/constants"
 
 const rules = [
   {
-    url: '/example',
-    availableTo: [roles.admin, roles.proveedor, roles.socio]
+    url: '/search',
+    availableTo: [roles.admin, roles.socio]
   }
 ]
 
