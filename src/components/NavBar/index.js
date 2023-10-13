@@ -3,8 +3,10 @@ import { AccountCircle } from '@mui/icons-material';
 import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import { sizes } from '@/constants';
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user, handleDrawerToggle }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenu = (e) => {
@@ -16,8 +18,24 @@ const NavBar = ({ user }) => {
   };
 
   return (
-    <AppBar position='static' color='secondary'>
+    <AppBar
+      position='fixed'
+      color='secondary'
+      sx={{
+        zIndex: (theme) => theme.zIndex.drawer + 1,
+        ml: { md: `${sizes.drawer.width}px` },
+      }}
+    >
       <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={handleDrawerToggle}
+          sx={{ mr: 2, display: { md: 'none' } }}
+        >
+          <MenuIcon />
+        </IconButton>
         <Typography variant='body1' marginRight='auto'>
           {user.email}
         </Typography>

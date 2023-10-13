@@ -4,4 +4,10 @@ const roles = {
   socio: 'socio'
 }
 
-export { roles }
+const sizes = {
+  drawer: {
+    width: 240
+  }
+}
+
+export { roles, sizes }
