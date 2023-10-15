@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import LoadingButton from '@mui/lab/LoadingButton';
 
-const DeresButton = ({ text, url, onClick, variant, animated, bold, loading, ...props }) => {
+const DeresButton = ({ text, url, onClick, variant, bold, loading, ...props }) => {
   const router = useRouter();
 
   const onClickMethod = () => {

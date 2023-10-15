@@ -10,4 +10,6 @@ const sizes = {
   }
 }
 
-export { roles, sizes }
+const resultsPerPage = 9
+
+export { roles, sizes, resultsPerPage }
