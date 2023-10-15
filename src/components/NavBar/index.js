@@ -1,55 +1,36 @@
 'use client'
-import { AccountCircle } from '@mui/icons-material';
-import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
-import { signOut } from 'next-auth/react';
+import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { useState } from 'react';
+import TopBar from './TopBar';
+import SearchBar from '../SearchBar';
+import SideBar from './SideBar';
+import { sizes } from '@/constants';
 
-const NavBar = ({ user }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
+const NavBar = ({ user, children }) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleMenu = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
 
   return (
-    <AppBar position='static' color='secondary'>
-      <Toolbar>
-        <Typography variant='body1' marginRight='auto'>
-          {user.email}
-        </Typography>
-        <Box marginLeft='auto'>
-          <IconButton
-            size='large'
-            aria-haspopup='true'
-            onClick={handleMenu}
-            color='inherit'
-          >
-            <AccountCircle />
-          </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={() => signOut({ redirect: true, callbackUrl: '/login' })}>Cerrar Sesion</MenuItem>
-          </Menu>
-        </Box>
-      </Toolbar>
-    </AppBar>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <TopBar user={user} drawerIsOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+      <SideBar
+        handleDrawerToggle={handleDrawerToggle}
+        mobileOpen={mobileOpen}
+        component={<SearchBar />}
+      />
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3, width: { md: `calc(100% - ${sizes.drawer.width}px)` } }}
+      >
+        <Toolbar />
+        {children}
+      </Box>
+    </Box>
   );
-}
+};
 
 export default NavBar;

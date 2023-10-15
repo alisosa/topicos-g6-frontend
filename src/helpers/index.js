@@ -1,20 +1,10 @@
-'use client'
+import { resultsPerPage } from "@/constants";
 
-const onlyDesktop = (theme) => ({
-  [theme.breakpoints.down('md')]: {
-    display: 'none'
-  },
-  [theme.breakpoints.up('md')]: {
-    display: 'block'
-  }
-});
-const onlyMobile = (theme) => ({
-  [theme.breakpoints.down('md')]: {
-    display: 'flex',
-  },
-  [theme.breakpoints.up('md')]: {
-    display: 'none'
-  }
-});
+const getOffset = (pageNum = 1) => ((pageNum - 1) * resultsPerPage)
 
-export { onlyDesktop, onlyMobile }
+const fromOffsetToPageNum = (offset = 0) => {
+  if (offset == 0) return 1
+  return (offset / resultsPerPage) + 1
+}
+
+export { getOffset, fromOffsetToPageNum }

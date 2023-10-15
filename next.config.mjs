@@ -4,7 +4,7 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: ['images.pexels.com'],
+    domains: ['dynamic.brandcrowd.com']
   },
 }
 
