@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { Box, CardActionArea } from '@mui/material';
 import Image from 'next/image';
 
-const ProviderCard = ({ nombre, rut, puntaje, logo }) => {
+const ProviderCard = ({ name, rut, score, logo }) => {
   return (
     <Card>
       <CardActionArea>
@@ -19,7 +19,7 @@ const ProviderCard = ({ nombre, rut, puntaje, logo }) => {
         </Box>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {nombre}
+            {name}
           </Typography>
           <Typography variant='body1'>
             RUT:
@@ -35,7 +35,7 @@ const ProviderCard = ({ nombre, rut, puntaje, logo }) => {
             &nbsp;
             {(
               <Typography component='span' variant='body2'>
-                {puntaje}
+                {score}
               </Typography>
             )}
           </Typography>
