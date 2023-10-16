@@ -12,20 +12,20 @@ const SearchBar = () => {
     mode: 'onChange', defaultValues: {
       name: searchParams.get('name'),
       rut: searchParams.get('rut'),
-      scoreDesde: searchParams.get('scoreDesde'),
-      scoreHasta: searchParams.get('scoreHasta')
+      scoreFrom: searchParams.get('scoreFrom'),
+      scoreTo: searchParams.get('scoreTo')
     }
   });
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter()
 
-  const onSubmit = async ({ name, rut, scoreDesde, scoreHasta }) => {
+  const onSubmit = async ({ name, rut, scoreFrom, scoreTo }) => {
     setIsLoading(true);
     const params = new URLSearchParams({
       ...(name && { name }),
       ...(rut && { rut }),
-      ...(scoreDesde && { scoreDesde }),
-      ...(scoreHasta && { scoreHasta })
+      ...(scoreFrom && { scoreFrom }),
+      ...(scoreTo && { scoreTo })
     })
     const url = `/search?${params}`;
     router.push(url)
@@ -41,7 +41,7 @@ const SearchBar = () => {
       width='100%'
     >
       <TextField
-        label='name'
+        label='Nombre'
         fullWidth
         color='primary'
         error={!!errors?.name}
@@ -62,8 +62,8 @@ const SearchBar = () => {
       />
       <FormNumberInput
         control={control}
-        name='scoreDesde'
-        label='score Desde'
+        name='scoreFrom'
+        label='Puntaje Desde'
         min={{
           value: 0,
           message: 'El score debe ser mayor a 0',
@@ -72,12 +72,12 @@ const SearchBar = () => {
           value: 100,
           message: 'El score maximo es 100',
         }}
-        validate={(value, formValues) => !value || !formValues.scoreHasta || value < formValues.scoreHasta || 'El score Desde debe ser menor al Hasta'}
+        validate={(value, formValues) => !value || !formValues.scoreTo || value < formValues.scoreTo || 'El score Desde debe ser menor al Hasta'}
       />
       <FormNumberInput
         control={control}
-        name='scoreHasta'
-        label='score Hasta'
+        name='scoreTo'
+        label='Puntaje Hasta'
         min={{
           value: 0,
           message: 'El score debe ser mayor a 0',
@@ -86,7 +86,7 @@ const SearchBar = () => {
           value: 100,
           message: 'El score maximo es 100',
         }}
-        validate={(value, formValues) => !value || !formValues.scoreDesde || value > formValues.scoreDesde || 'El score Hasta debe ser mayor al Desde'}
+        validate={(value, formValues) => !value || !formValues.scoreFrom || value > formValues.scoreFrom || 'El score Hasta debe ser mayor al Desde'}
       />
       <DeresButton loading={isLoading} text='Buscar' type="submit" variant="contained" bold />
     </Stack >
