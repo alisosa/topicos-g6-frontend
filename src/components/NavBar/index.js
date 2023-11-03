@@ -16,7 +16,7 @@ const NavBar = ({ user, children }) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <TopBar user={user} drawerIsOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+      <TopBar user={user} drawerIsOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} hasSideBar />
       <SideBar
         handleDrawerToggle={handleDrawerToggle}
         mobileOpen={mobileOpen}
