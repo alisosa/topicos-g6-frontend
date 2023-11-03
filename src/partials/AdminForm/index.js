@@ -14,13 +14,13 @@ const AdminForm = ({ defaultData }) => {
       ...defaultData
     }
   });
-  console.log('errors:', errors)
+
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (body) => {
     setIsLoading(true);
+    //TODO: Integrar con backend
     console.log('body: ', body);
-    // const url = `/search?${params}`;
     setIsLoading(false);
   }
   return (
