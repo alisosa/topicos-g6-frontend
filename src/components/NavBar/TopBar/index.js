@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { sizes } from '@/constants';
 
-const TopBar = ({ user, drawerIsOpen, handleDrawerToggle }) => {
+const TopBar = ({ user, hasSideBar, drawerIsOpen, handleDrawerToggle }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenu = (e) => {
@@ -28,15 +28,17 @@ const TopBar = ({ user, drawerIsOpen, handleDrawerToggle }) => {
       }}
     >
       <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { md: 'none' } }}
-        >
-          {drawerIsOpen ? (<CloseIcon />) : (<MenuIcon />)}
-        </IconButton>
+        {hasSideBar && (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { md: 'none' } }}
+          >
+            {drawerIsOpen ? (<CloseIcon />) : (<MenuIcon />)}
+          </IconButton>
+        )}
         <Typography variant='body1' marginRight='auto'>
           {user.email}
         </Typography>

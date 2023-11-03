@@ -21,7 +21,7 @@ export const authOptions = {
           return {
             email: user.email,
             token,
-            role: roles.socio
+            role: roles.admin
           };
         } catch (_error) {
           throw new Error('Email o contraseña invalidos, por favor intente nuevamente');
