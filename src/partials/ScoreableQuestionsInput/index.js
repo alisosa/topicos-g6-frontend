@@ -1,31 +1,28 @@
-import {useFieldArray} from "react-hook-form";
-import AddIcon from '@mui/icons-material/Add';
-import {Box, Stack} from "@mui/material";
-import DeresButton from "@/components/DeresButton";
-import FormTextInput from "@/components/FormTextInput";
-import FormDropdownSelector from "@/components/FormDropdownSelector";
-import {questionTypes} from "@/constants";
-import FormCheckBoxInput from "@/components/FormCheckBoxInput";
+import { useFieldArray } from "react-hook-form";
+import { Box, FormControlLabel, Checkbox } from "@mui/material";
 
-const ScoreableQuestionsInput = ({control, name}) => {
-    const {fields} = useFieldArray({
+const ScoreableQuestionsInput = ({ control, name }) => {
+    const { fields } = useFieldArray({
         control,
         name
     });
 
     return (
-        <Stack rowGap={2}>
-            {fields.map(({question}, index) => (
-                <FormCheckBoxInput
+        <Box sx={{ mt: 2 }}>
+            {fields.map((field, index) => (
+                <FormControlLabel
                     key={`question-${index}`}
-                    required
-                    control={control}
-                    label={question}
-                    requiredText='Debe ingresar una pregunta'
-                    name={`${name}.${index}.value`}
+                    control={
+                        <Checkbox
+                            {...control.register(`${name}.${index}.value`)}
+                            color="primary"
+                        />
+                    }
+                    label={field.question}
+                    sx={{ display: 'block', mb: 1 }}
                 />
             ))}
-        </Stack>
+        </Box>
     );
 };
 

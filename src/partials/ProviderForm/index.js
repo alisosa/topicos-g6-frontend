@@ -31,11 +31,10 @@ const ProviderForm = ({ defaultData }) => {
             autoComplete='off'
             spacing={2}
             onSubmit={handleSubmit(onSubmit)}
-            width='100%'
+            sx={{ p: 10 }}
         >
-            <Grid container columns={{ xs: 1, md: 2 }} spacing={2}>
-                <Grid xs={1}>
-
+            <Grid container spacing={2} sx={{ mb: 2 }}>
+                <Grid item xs={12} sm={6}>
                     <FormTextInput
                         required
                         control={control}
@@ -44,7 +43,7 @@ const ProviderForm = ({ defaultData }) => {
                         name='name'
                     />
                 </Grid>
-                <Grid xs={1}>
+                <Grid item xs={12} sm={6}>
                     <FormTextInput
                         required
                         control={control}
@@ -53,7 +52,7 @@ const ProviderForm = ({ defaultData }) => {
                         name='email'
                     />
                 </Grid>
-                <Grid xs={1}>
+                <Grid item xs={12} sm={6}>
                     <FormTextInput
                         required
                         control={control}
@@ -62,7 +61,7 @@ const ProviderForm = ({ defaultData }) => {
                         name='rut'
                     />
                 </Grid>
-                <Grid xs={1}>
+                <Grid item xs={12} sm={6}>
                     <FormTextInput
                         required
                         control={control}
@@ -73,15 +72,14 @@ const ProviderForm = ({ defaultData }) => {
                 </Grid>
             </Grid>
 
-            <FormControl error={!!errors?.questions}>
-                <InputLabel sx={{ position: 'static', transform: 'none !important', mb: 2 }}>Preguntas para ponderación</InputLabel>
+            <FormControl component="fieldset" error={!!errors?.questions}>
                 <ScoreableQuestionsInput control={control} name='questions' />
                 {!!errors?.questions?.root?.message && (<FormHelperText>{errors?.questions?.root?.message}</FormHelperText>)}
             </FormControl>
 
-
             <DeresButton loading={isLoading} text='Buscar' type="submit" variant="contained" bold />
-        </Stack >
+        </Stack>
+
     );
 };
 
