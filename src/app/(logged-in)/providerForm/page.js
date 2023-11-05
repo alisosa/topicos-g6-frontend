@@ -8,19 +8,19 @@ const Page = () => {
         address: "direcc 1223",
         questions: [
             {
-                question: "pregunta 1",
+                question: "Lorem ipsum dolor sit amet consectetur adipiscing, elit fames semper conubia ullamcorper posuere, leo fusce litora vestibulum urna. Dictumst rutrum varius eu nisi, tellus scelerisque imperdiet.",
             },
             {
-                question: "pregunta 2",
+                question: "Lorem ipsum dolor sit amet consectetur adipiscing, elit fames semper conubia ullamcorper posuere, leo fusce litora vestibulum urna. Dictumst rutrum varius eu nisi, tellus scelerisque imperdiet.",
             },
             {
-                question: "pregunta 3",
+                question: "Lorem ipsum dolor sit amet consectetur adipiscing, elit fames semper conubia ullamcorper posuere, leo fusce litora vestibulum urna. Dictumst rutrum varius eu nisi, tellus scelerisque imperdiet.",
             }
         ]
     }
 
     return (
-        <ProviderForm defaultData={data}/>
+        <ProviderForm defaultData={data} />
     );
 };
 
