@@ -77,8 +77,7 @@ const AdminForm = ({ defaultData }) => {
         {!!errors?.questions?.root?.message && (<FormHelperText>{errors?.questions?.root?.message}</FormHelperText>)}
       </FormControl>
 
-
-      <DeresButton loading={isLoading} text='Buscar' type="submit" variant="contained" bold />
+      <DeresButton loading={isLoading} text='Enviar' type="submit" variant="contained" bold />
     </Stack >
   );
 };
