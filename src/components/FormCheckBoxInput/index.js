@@ -24,7 +24,7 @@ const FormCheckBoxInput = ({ control, name, label, requiredText, formProps, vali
             <RadioGroup
               {...rest}
               id={name}
-              value={value || undefined}
+              value={value || null}
               onChange={({ target }) => onChange(target.value)}
             >
               <FormControlLabel control={<Radio />} label="verdadero" value={true} />
