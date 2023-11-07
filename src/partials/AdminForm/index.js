@@ -6,6 +6,8 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import QuestionCreationInput from "../QuestionCreationInput";
+import axios from "axios";
+import { useSnackbar } from 'notistack';
 
 const AdminForm = ({ defaultData }) => {
 
@@ -16,12 +18,20 @@ const AdminForm = ({ defaultData }) => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   const onSubmit = async (body) => {
     setIsLoading(true);
-    //TODO: Integrar con backend
-    console.log('body: ', body);
-    setIsLoading(false);
+    try {
+      await axios.put('/api/form', body, {})
+      enqueueSnackbar(`Exito!`, { variant: 'success' });
+    }
+    catch (error) {
+      enqueueSnackbar(error, { variant: 'error' })
+    }
+    finally {
+      setIsLoading(false);
+    }
   }
   return (
     <Stack
@@ -65,6 +75,15 @@ const AdminForm = ({ defaultData }) => {
             label='Dirección'
             color='primary'
             value='La Direccion de la Empresa'
+            fullWidth
+            disabled
+          />
+        </Grid>
+        <Grid xs={1}>
+          <TextField
+            label='Logo'
+            color='primary'
+            value='https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000'
             fullWidth
             disabled
           />

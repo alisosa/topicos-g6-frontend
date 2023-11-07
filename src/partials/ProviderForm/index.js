@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import FormTextInput from "@/components/FormTextInput";
 import ScoreableQuestionsInput from "@/partials/ScoreableQuestionsInput";
+import axios from "axios";
+import { useSnackbar } from 'notistack';
 
 const ProviderForm = ({ defaultData }) => {
   const { handleSubmit, control } = useForm({
@@ -16,13 +18,22 @@ const ProviderForm = ({ defaultData }) => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   const onSubmit = async (body) => {
     setIsLoading(true);
-    //TODO: Integrar con backend
-    console.log('body: ', body);
-    setIsLoading(false);
+    try {
+      await axios.post('/api/provider/create', body, {})
+      enqueueSnackbar(`Exito!`, { variant: 'success' });
+    }
+    catch (error) {
+      enqueueSnackbar(error, { variant: 'error' })
+    }
+    finally {
+      setIsLoading(false);
+    }
   }
+
   return (
     <Stack
       component='form'
@@ -39,7 +50,7 @@ const ProviderForm = ({ defaultData }) => {
             control={control}
             label='Nombre'
             requiredText='Debe ingresar un nombre'
-            name='name'
+            name='provider.name'
           />
         </Grid>
         <Grid xs={1}>
@@ -48,7 +59,7 @@ const ProviderForm = ({ defaultData }) => {
             control={control}
             label='Email'
             requiredText='Debe ingresar un email'
-            name='email'
+            name='provider.email'
           />
         </Grid>
         <Grid xs={1}>
@@ -57,7 +68,7 @@ const ProviderForm = ({ defaultData }) => {
             control={control}
             label='RUT'
             requiredText='Debe ingresar un RUT'
-            name='rut'
+            name='provider.rut'
           />
         </Grid>
         <Grid xs={1}>
@@ -66,7 +77,16 @@ const ProviderForm = ({ defaultData }) => {
             control={control}
             label='Dirección'
             requiredText='Debe ingresar una dirección'
-            name='address'
+            name='provider.address'
+          />
+        </Grid>
+        <Grid xs={1}>
+          <FormTextInput
+            required
+            control={control}
+            label='Logo'
+            requiredText='Debe ingresar una url con la foto del logo'
+            name='provider.logo'
           />
         </Grid>
       </Grid>
