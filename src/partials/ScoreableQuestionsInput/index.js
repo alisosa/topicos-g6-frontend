@@ -17,7 +17,7 @@ const ScoreableQuestionsInput = ({ control, name }) => {
           control={control}
           label={question}
           requiredText='Debe seleccionar una respuesta'
-          name={`${name}.${index}.value`}
+          name={`${name}.${index}.scorable`}
         />
       ))}
     </Stack>

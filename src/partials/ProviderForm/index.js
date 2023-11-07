@@ -23,7 +23,7 @@ const ProviderForm = ({ defaultData }) => {
   const onSubmit = async (body) => {
     setIsLoading(true);
     try {
-      await axios.post('/api/provider/create', body, {})
+      await axios.post('/api/providers/create', body, {})
       enqueueSnackbar(`Exito!`, { variant: 'success' });
     }
     catch (error) {

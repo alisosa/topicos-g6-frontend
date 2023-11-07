@@ -21,7 +21,7 @@ const Page = async () => {
     //     ]
     // }
 
-    const data = await axios.get('http://localhost:8080/form/questions')
+    const {data} = await axios.get('http://localhost:8080/form/questions')
 
     return (
         <ProviderForm defaultData={data} />
