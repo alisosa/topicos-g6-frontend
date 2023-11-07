@@ -5,13 +5,15 @@ import { Box, CardActionArea } from '@mui/material';
 import Image from 'next/image';
 
 const ProviderCard = ({ name, rut, score, logo }) => {
+  const logoUrl = logo && (logo.includes("https://") || logo.includes("http://")) ? logo : null;
+
   return (
     <Card>
       <CardActionArea>
         <Box width='100%' height={140} position='relative'>
           <Image
             alt='Logo del Provedor'
-            src={logo || 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000'}
+            src={logoUrl || 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000'}
             style={{ objectFit: 'contain' }}
             sizes='100%, 100%'
             fill
