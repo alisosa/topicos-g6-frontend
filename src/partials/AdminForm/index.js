@@ -1,7 +1,7 @@
 'use client'
 
 import DeresButton from "@/components/DeresButton";
-import { FormControl, FormHelperText, InputLabel, Stack, TextField } from "@mui/material";
+import { FormControl, FormHelperText, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -69,6 +69,18 @@ const AdminForm = ({ defaultData }) => {
             fullWidth
             disabled
           />
+        </Grid>
+        <Grid xs={1}>
+          <FormControl disabled fullWidth>
+            <InputLabel>Rubro</InputLabel>
+            <Select
+              label='Rubro'
+              color='primary'
+              value='category'
+            >
+              <MenuItem value='category'>Rubro de la empresa</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
         <Grid xs={1}>
           <TextField

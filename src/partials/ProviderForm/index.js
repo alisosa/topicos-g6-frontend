@@ -9,6 +9,8 @@ import FormTextInput from "@/components/FormTextInput";
 import ScoreableQuestionsInput from "@/partials/ScoreableQuestionsInput";
 import axios from "axios";
 import { useSnackbar } from 'notistack';
+import { categories } from "@/constants";
+import FormDropdownSelector from "@/components/FormDropdownSelector";
 
 const ProviderForm = ({ defaultData }) => {
   const { handleSubmit, control } = useForm({
@@ -69,6 +71,15 @@ const ProviderForm = ({ defaultData }) => {
             label='RUT'
             requiredText='Debe ingresar un RUT'
             name='provider.rut'
+          />
+        </Grid>
+        <Grid xs={1}>
+          <FormDropdownSelector
+            control={control}
+            options={categories}
+            label='Rubro'
+            requiredText='Debe ingresar un rubro'
+            name='provider.category'
           />
         </Grid>
         <Grid xs={1}>

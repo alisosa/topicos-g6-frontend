@@ -6,6 +6,13 @@ import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { sizes } from '@/constants';
+import DeresButton from '@/components/DeresButton';
+
+const navBarButtons = {
+  admin: [{ url: '/search', text: 'Proveedores' }, { url: '/form', text: 'Formulario para Proveedores' }],
+  proveedor: [],
+  socio: [{ url: '/search', text: 'Proveedores' }, { url: '/inviteProvider', text: 'Invitar Proveedor' }]
+}
 
 const TopBar = ({ user, hasSideBar, drawerIsOpen, handleDrawerToggle }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -27,7 +34,7 @@ const TopBar = ({ user, hasSideBar, drawerIsOpen, handleDrawerToggle }) => {
         ml: { md: `${sizes.drawer.width}px` },
       }}
     >
-      <Toolbar>
+      <Toolbar >
         {hasSideBar && (
           <IconButton
             color="inherit"
@@ -42,6 +49,9 @@ const TopBar = ({ user, hasSideBar, drawerIsOpen, handleDrawerToggle }) => {
         <Typography variant='body1' marginRight='auto'>
           {user.email}
         </Typography>
+        <Box marginLeft='auto' marginRight='auto' display='flex' columnGap={4}>
+          {navBarButtons[user.role].map((props, i) => <DeresButton key={`menu-item-${i}`} {...props} variant='outlined' bold />)}
+        </Box>
         <Box marginLeft='auto'>
           <IconButton
             size='large'

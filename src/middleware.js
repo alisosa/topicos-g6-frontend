@@ -22,4 +22,4 @@ export default withAuth(
   }
 )
 
-export const config = { matcher: ['/search', '/form'] }
+export const config = { matcher: ['/search', '/form', '/inviteProvider', '/providerForm/:path*'] }

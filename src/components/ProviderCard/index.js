@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { Box, CardActionArea } from '@mui/material';
 import Image from 'next/image';
 
-const ProviderCard = ({ name, rut, score, logo }) => {
+const ProviderCard = ({ name, rut, score, logo, category }) => {
   const logoUrl = logo && (logo.includes("https://") || logo.includes("http://")) ? logo : null;
 
   return (
@@ -32,15 +32,26 @@ const ProviderCard = ({ name, rut, score, logo }) => {
               </Typography>
             )}
           </Typography>
-          <Typography variant='body1'>
-            Score:
-            &nbsp;
-            {(
-              <Typography component='span' variant='body2'>
-                {score}
-              </Typography>
-            )}
-          </Typography>
+          <Box display='flex' justifyContent='space-between'>
+            <Typography variant='body1' width='fit-content'>
+              Score:
+              &nbsp;
+              {(
+                <Typography component='span' variant='body2'>
+                  {score}
+                </Typography>
+              )}
+            </Typography>
+            <Typography variant='body1' width='fit-content'>
+              Category:
+              &nbsp;
+              {(
+                <Typography component='span' variant='body2'>
+                  {category}
+                </Typography>
+              )}
+            </Typography>
+          </Box>
         </CardContent>
       </CardActionArea>
     </Card>

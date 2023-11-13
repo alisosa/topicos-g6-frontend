@@ -8,6 +8,18 @@ const rules = [
   {
     url: '/form',
     availableTo: [roles.admin]
+  },
+  {
+    url: '/providerForm',
+    availableTo: [roles.proveedor]
+  },
+  {
+    url: '/providerForm/:id',
+    availableTo: [roles.proveedor]
+  },
+  {
+    url: '/inviteProvider',
+    availableTo: [roles.socio]
   }
 ]
 

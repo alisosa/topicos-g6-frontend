@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Controller } from "react-hook-form";
 
-const FormCheckBoxInput = ({ control, name, label, requiredText, formProps, validations, ...rest }) => {
+const FormRadiosInput = ({ control, name, label, requiredText, formProps, validations, ...rest }) => {
   return (
     <Controller
       control={control}
@@ -39,4 +39,4 @@ const FormCheckBoxInput = ({ control, name, label, requiredText, formProps, vali
   );
 };
 
-export default FormCheckBoxInput;
+export default FormRadiosInput;
