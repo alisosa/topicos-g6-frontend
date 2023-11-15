@@ -53,7 +53,7 @@ const FormNumberInput = ({ control, name, label, requiredText, min, max, validat
       }}
       render={({ field: { value, onChange }, fieldState: { invalid, error }, }) => {
         return (
-          <FormControl fullWidth error={invalid} required sx={{ m: 1 }}>
+          <FormControl fullWidth error={invalid} required={!!requiredText} sx={{ m: 1 }}>
             <InputLabel>{label}</InputLabel>
             <OutlinedInput
               {...rest}

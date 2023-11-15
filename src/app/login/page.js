@@ -24,7 +24,7 @@ const Page = () => {
     if (error) {
       enqueueSnackbar(error, { variant: 'error' })
     } else {
-      router.push('/search');
+      router.push('/');
       router.refresh();
     }
 

@@ -9,9 +9,9 @@ import { sizes } from '@/constants';
 import DeresButton from '@/components/DeresButton';
 
 const navBarButtons = {
-  admin: [{ url: '/search', text: 'Proveedores' }, { url: '/form', text: 'Formulario para Proveedores' }],
-  proveedor: [],
-  socio: [{ url: '/search', text: 'Proveedores' }, { url: '/inviteProvider', text: 'Invitar Proveedor' }]
+  ADMIN: [{ url: '/search', text: 'Proveedores' }, { url: '/form', text: 'Formulario para Proveedores' }],
+  PROVEEDOR: [],
+  SOCIO: [{ url: '/search', text: 'Proveedores' }, { url: '/inviteProvider', text: 'Invitar Proveedor' }]
 }
 
 const TopBar = ({ user, hasSideBar, drawerIsOpen, handleDrawerToggle }) => {

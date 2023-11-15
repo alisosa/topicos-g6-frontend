@@ -1,7 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials";
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from "@/firebase";
-import { roles } from "@/constants";
+import axios from "axios";
 
 export const authOptions = {
   pages: {
@@ -18,13 +18,22 @@ export const authOptions = {
         try {
           const { user } = await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
           const token = await user.getIdToken();
+          const url = `http://localhost:8080/api/users/verifyToken?${new URLSearchParams({ idToken: token })}`
+          const { data: { role } } = await axios.get(url, {})
           return {
             email: user.email,
             token,
-            role: roles.proveedor
+            role
           };
-        } catch (_error) {
-          throw new Error('Email o contraseña invalidos, por favor intente nuevamente');
+        } catch ({ code, message }) {
+          switch (code) {
+            case 'auth/wrong-password':
+            case 'auth/user-not-found':
+              throw new Error('Email o contraseña invalidos, por favor intente nuevamente');
+            default:
+              await signOut(auth);
+              throw new Error(message || 'Upps ha ocurrido un error, por favor intente nuevamente');
+          }
         }
       }
     })

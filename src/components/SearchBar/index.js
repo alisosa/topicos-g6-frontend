@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import FormNumberInput from "../FormNumberInput";
 import DeresButton from "../DeresButton";
+import { categories } from "@/constants";
+import FormDropdownSelector from "../FormDropdownSelector";
 
 const SearchBar = () => {
   const searchParams = useSearchParams();
@@ -12,6 +14,7 @@ const SearchBar = () => {
     mode: 'onChange', defaultValues: {
       name: searchParams.get('name'),
       rut: searchParams.get('rut'),
+      category: searchParams.get('category'),
       scoreFrom: searchParams.get('scoreFrom'),
       scoreTo: searchParams.get('scoreTo')
     }
@@ -19,11 +22,12 @@ const SearchBar = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter()
 
-  const onSubmit = async ({ name, rut, scoreFrom, scoreTo }) => {
+  const onSubmit = async ({ name, rut, category, scoreFrom, scoreTo }) => {
     setIsLoading(true);
     const params = new URLSearchParams({
       ...(name && { name }),
       ...(rut && { rut }),
+      ...(category && { category }),
       ...(scoreFrom && { scoreFrom }),
       ...(scoreTo && { scoreTo })
     })
@@ -44,8 +48,6 @@ const SearchBar = () => {
         label='Nombre'
         fullWidth
         color='primary'
-        error={!!errors?.name}
-        helperText={errors?.name?.message}
         inputProps={{
           ...register("name")
         }}
@@ -54,11 +56,15 @@ const SearchBar = () => {
         label='RUT'
         fullWidth
         color='primary'
-        error={!!errors?.name}
-        helperText={errors?.name?.message}
         inputProps={{
           ...register("rut")
         }}
+      />
+      <FormDropdownSelector
+        control={control}
+        options={categories}
+        label='Rubro'
+        name='category'
       />
       <FormNumberInput
         control={control}

@@ -1,7 +1,7 @@
 const roles = {
-  admin: 'admin',
-  proveedor: 'proveedor',
-  socio: 'socio'
+  admin: 'ADMIN',
+  proveedor: 'PROVEEDOR',
+  socio: 'SOCIO'
 }
 
 const questionTypes = [
