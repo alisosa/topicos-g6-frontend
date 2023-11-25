@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { Box, CardActionArea } from '@mui/material';
 import Image from 'next/image';
 
-const ProviderCard = ({ name, rut, score, logo, category }) => {
+const ProviderCard = ({ name, rut, score, logo, category = 'textil' }) => {
   const logoUrl = logo && (logo.includes("https://") || logo.includes("http://")) ? logo : null;
 
   return (

@@ -6,23 +6,7 @@ import { fromOffsetToPageNum } from "@/helpers";
 import axios from "axios";
 
 const Page = async ({ searchParams }) => {
-  // const { data } = await axios.get(`http://localhost:8080/providers/search?${new URLSearchParams(searchParams)}`)
-  // console.log('DATA DEL SEARCH', data)
-  // console.log("resultado: ", data )
-  const data = {
-    providers: [
-      { name: 'holi', rut: '431', score: '23', category: 'textil', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'alimentario', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'transporte', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'textil', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'alimentario', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'transporte', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'textil', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'alimentario', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' },
-      { name: 'holi', rut: '431', score: '23', category: 'transporte', logo: 'https://dynamic.brandcrowd.com/asset/logo/3cfd6b07-267e-456b-9bb7-d5029cc6bb52/logo-search-grid-1x?logoTemplateVersion=1&v=637654796499570000' }
-    ],
-    pages: 5
-  }
+  const { data } = await axios.get(`http://localhost:8080/providers/search?${new URLSearchParams(searchParams)}`)
 
   return (
     <Stack gap={4} width='100%'>
