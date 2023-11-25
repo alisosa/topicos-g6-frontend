@@ -2,9 +2,6 @@ import mainTheme from '@/theme'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import Head from 'next/head'
 import Provider from '@/components/Provider'
-import axios from 'axios'
-import { getServerSession } from 'next-auth'
-import { authOptions } from './api/auth/[...nextauth]/options'
 
 const RootLayout = async ({ children }) => {
   return (

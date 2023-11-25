@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useSnackbar } from 'notistack';
 import FormTextInput from "@/components/FormTextInput";
-import {useSession} from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 const InviteProviderForm = () => {
   const { handleSubmit, control, formState: { errors } } = useForm({
@@ -17,13 +17,13 @@ const InviteProviderForm = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
-  const {data:session} = useSession();
+  const { data: session } = useSession();
 
   const onSubmit = async (body) => {
     setIsLoading(true);
     try {
       const url = 'http://localhost:8080/api/users/inviteProvider';
-      await axios.post(url, body, {headers: {Authorization: session.info.accessToken}});
+      await axios.post(url, body, { headers: { Authorization: session.info.accessToken } });
       enqueueSnackbar(`Exito!`, { variant: 'success' });
     }
     catch (error) {
