@@ -11,7 +11,7 @@ const Provider = ({ children }) => {
       <SessionProvider>
         <SnackbarProvider
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-          autoHideDuration={6000}
+          autoHideDuration={2000}
         >
           {children}
         </SnackbarProvider>

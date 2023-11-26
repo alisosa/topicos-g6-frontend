@@ -62,6 +62,7 @@ const ProviderForm = ({ defaultData }) => {
             label='Email'
             requiredText='Debe ingresar un email'
             name='provider.email'
+            disabled
           />
         </Grid>
         <Grid xs={1}>
@@ -71,6 +72,7 @@ const ProviderForm = ({ defaultData }) => {
             label='RUT'
             requiredText='Debe ingresar un RUT'
             name='provider.rut'
+            disabled
           />
         </Grid>
         <Grid xs={1}>
