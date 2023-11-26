@@ -20,6 +20,10 @@ const rules = [
   {
     url: '/inviteProvider',
     availableTo: [roles.socio]
+  },
+  {
+    url: '/invitePartner',
+    availableTo: [roles.admin]
   }
 ]
 

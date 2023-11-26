@@ -9,9 +9,10 @@ import axios from "axios";
 import { useSnackbar } from 'notistack';
 import FormTextInput from "@/components/FormTextInput";
 import { useSession } from "next-auth/react";
+import { userInvitations } from "@/constants";
 
-const InviteProviderForm = () => {
-  const { handleSubmit, control, formState: { errors } } = useForm({
+const InviteForm = ({ inviteType }) => {
+  const { handleSubmit, control } = useForm({
     mode: 'onChange'
   });
 
@@ -22,7 +23,7 @@ const InviteProviderForm = () => {
   const onSubmit = async (body) => {
     setIsLoading(true);
     try {
-      const url = 'http://localhost:8080/api/users/inviteProvider';
+      const url = `http://localhost:8080/api/users/${userInvitations[inviteType]}`;
       await axios.post(url, body, { headers: { Authorization: session.info.accessToken } });
       enqueueSnackbar(`Exito!`, { variant: 'success' });
     }
@@ -69,4 +70,4 @@ const InviteProviderForm = () => {
   );
 };
 
-export default InviteProviderForm;
+export default InviteForm;

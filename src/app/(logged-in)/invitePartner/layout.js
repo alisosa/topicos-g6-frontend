@@ -4,7 +4,7 @@ const InviteProviderLayout = ({ children }) => {
   return (
     <Stack width='100%' px={3} py={5}>
       <Typography variant="h4" textAlign='center' mb={2}>
-        Invitar a un nuevo Proveedor
+        Invitar a un nuevo Socio
       </Typography>
       <Stack maxWidth='800px' width='100%' mx='auto'>
         {children}

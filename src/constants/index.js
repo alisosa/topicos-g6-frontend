@@ -20,6 +20,11 @@ const sizes = {
   }
 }
 
+const userInvitations = {
+  partner: 'invitePartner',
+  provider: 'inviteProvider'
+}
+
 const resultsPerPage = 9
 
-export { roles, sizes, resultsPerPage, categories, questionTypes }
+export { roles, sizes, resultsPerPage, categories, questionTypes, userInvitations }
