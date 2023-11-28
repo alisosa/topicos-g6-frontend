@@ -10,7 +10,8 @@
     "dev": "next",
     "build": "next build && rm -rf ./.next/cache",
     "start": "next start",
-    "lint": "next lint --fix --ext .js,.jsx ."
+    "lint": "next lint --fix --ext .js,.jsx .",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -37,6 +38,7 @@
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "@types/redux-logger": "3.0.9",
+    "cypress": "^13.6.0",
     "eslint": "^8.47.0",
     "eslint-config-next": "13.4.19",
     "eslint-plugin-react": "^7.33.2",

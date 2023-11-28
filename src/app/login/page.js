@@ -64,7 +64,13 @@ const Page = () => {
               type='password'
               autoComplete='current-password'
               color='primary'
-              inputProps={{ ...register("password") }}
+              error={!!errors?.password}
+              helperText={errors?.password?.message}
+              inputProps={{
+                ...register("password", {
+                  required: 'Ingresa una contraseña'
+                })
+              }}
             />
             <DeresButton loading={isLoading} text='Iniciar Sesión' type="submit" variant="contained" animated />
           </Stack>
