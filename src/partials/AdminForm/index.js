@@ -24,7 +24,7 @@ const AdminForm = ({ defaultData }) => {
     setIsLoading(true);
     try {
       await axios.put('/api/form', body, {})
-      enqueueSnackbar(`Exito!`, { variant: 'success' });
+      enqueueSnackbar(`Email enviado!`, { variant: 'success' });
     }
     catch (error) {
       enqueueSnackbar(error, { variant: 'error' })

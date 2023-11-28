@@ -33,7 +33,7 @@ const ProviderCard = ({ name, rut, score, logo, category = 'textil' }) => {
         </Typography>
         <Box display='flex' justifyContent='space-between'>
           <Typography variant='body1' width='fit-content'>
-            Score:
+            Puntaje:
             &nbsp;
             {(
               <Typography component='span' variant='body2'>
@@ -42,7 +42,7 @@ const ProviderCard = ({ name, rut, score, logo, category = 'textil' }) => {
             )}
           </Typography>
           <Typography variant='body1' width='fit-content'>
-            Category:
+            Rubro:
             &nbsp;
             {(
               <Typography component='span' variant='body2'>
